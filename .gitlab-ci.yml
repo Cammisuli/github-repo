@@ -1,0 +1,22 @@
+image: node:20
+
+variables:
+  GIT_DEPTH: 0
+
+main:
+  interruptible: true
+  only:
+    - main
+    - merge_requests
+  cache:
+    key:
+      files:
+        - package-lock.json
+    paths:
+      - .npm/
+  script:
+   
+    - npm ci --cache .npm --prefer-offline
+    - npx nx-cloud start-ci-run --distribute-on="2 custom"
+    - npx nx run-many -t lint test build
+    - npx nx-cloud complete-ci-run
