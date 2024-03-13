@@ -1,6 +1,6 @@
 launch-templates:
   custom:
-    resource-class: "docker_linux_amd64/small"
+    resource-class: 'docker_linux_amd64/small'
     image: 'ubuntu22.04-node20.9-v2'
     init-steps:
       - name: Checkout
