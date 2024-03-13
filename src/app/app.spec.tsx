@@ -16,6 +16,6 @@ describe('App', () => {
   });
 
   it('should pass', () => {
-    expect(true).toBeTruthy();
+    expect(false).toBeTruthy();
   });
 });
