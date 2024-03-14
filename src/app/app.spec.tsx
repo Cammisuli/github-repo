@@ -18,4 +18,8 @@ describe('App', () => {
   it('should pass', () => {
     expect(true).toBeTruthy();
   });
+
+  it('should add another test', () => {
+    expect(false).toBeTruthy();
+  });
 });
