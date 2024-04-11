@@ -16,7 +16,6 @@ jobs:
       - run: npm ci
       - nx/set-shas
 
-      - run: npx nx-cloud record -- nx format:check
       - run: npx nx affected --base=$NX_BASE --head=$NX_HEAD -t lint test build e2e-ci
 workflows:
   build:
