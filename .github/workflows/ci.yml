@@ -14,7 +14,7 @@ jobs:
   main:
     runs-on: ubuntu-latest
     env: 
-      BRANCH_NAME: github-${{ github.head_ref || github.ref_name }} 
+      NX_CI_EXECUTION_ID: github-${{ github.head_ref || github.ref_name }} 
     steps:
       - uses: actions/checkout@v4
         with:
@@ -31,6 +31,6 @@ jobs:
       - run: npm ci
       - uses: nrwl/nx-set-shas@v4
 
-      - run: NX_CI_EXECUTION_ID=$BRANCH_NAME npx nx-cloud start-ci-run --distribute-on="2 custom" --stop-agents-after="e2e-ci"
+      - run: npx nx-cloud start-ci-run --distribute-on="2 custom" --stop-agents-after="e2e-ci"
       - run: npx nx-cloud record -- nx format:check
       - run: npx nx affected -t lint test build e2e-ci
