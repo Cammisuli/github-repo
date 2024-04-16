@@ -1,5 +1,5 @@
 {
-  "name": "@gitlab-repo/source",
+  "name": "@github-repo/source",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
