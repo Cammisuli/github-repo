@@ -40,7 +40,6 @@ jobs:
       - name: Push changes
         run: |
           git push origin releases/v${{ github.event.inputs.version }}
-        if: ${{ github.event.inputs.commit }}
 
       - name: Create or update tags
         run: |
