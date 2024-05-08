@@ -20,15 +20,18 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Fetch all branches
+        run: git fetch --all
+
       - name: Create or checkout branch
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch origin
-          if git show-ref --verify --quiet refs/heads/releases/v${{ github.event.inputs.version }}; then
-            git checkout releases/v${{ github.event.inputs.version }}
+          MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
+          if git show-ref --verify --quiet refs/heads/releases/v$MAJOR_VERSION; then
+            git checkout releases/v$MAJOR_VERSION
           else
-            git checkout -b releases/v${{ github.event.inputs.version }}
+            git checkout -b releases/v$MAJOR_VERSION
           fi
 
       - name: Cherry-pick commits
