@@ -18,6 +18,8 @@ Run `npx nx serve gitlab-repo` to start the development server. Happy coding!
 
 Run `npx nx build gitlab-repo` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
 
+more
+
 ## Running tasks
 
 To execute tasks with Nx use the following syntax:
