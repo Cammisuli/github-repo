@@ -28,12 +28,13 @@ jobs:
 
       - name: Create or checkout branch
         run: |
-          MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
-          if git show-ref --verify --quiet refs/heads/releases/v$MAJOR_VERSION; then
-            git checkout releases/v$MAJOR_VERSION
-          else
-            git checkout -b releases/v$MAJOR_VERSION
-          fi
+          git diff ${{github.event.inputs.commit}}^!
+           MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
+           if git show-ref --verify --quiet refs/heads/releases/v$MAJOR_VERSION; then
+             git checkout releases/v$MAJOR_VERSION
+           else
+             git checkout -b releases/v$MAJOR_VERSION
+           fi
 
       - name: Print current branch and all branches
         run: |
