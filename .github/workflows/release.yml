@@ -46,7 +46,7 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin releases/v${{ github.event.inputs.version }}
+          git push origin releases/v$MAJOR_VERSION
 
       - name: Create or update tags
         run: |
