@@ -30,6 +30,7 @@ new things
 You can also run multiple targets:
 
 ```
+more things
 npx nx run-many -t <target1> <target2>
 ```
 
