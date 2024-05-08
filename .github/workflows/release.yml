@@ -19,36 +19,26 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Fetch all branches
-        run: |
+      - run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git fetch --all
 
       - name: Create or checkout branch
         run: |
-          git diff ${{github.event.inputs.commit}}^!
-           MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
-           if git show-ref --verify --quiet refs/heads/releases/v$MAJOR_VERSION; then
-             git checkout releases/v$MAJOR_VERSION
-           else
-             git checkout -b releases/v$MAJOR_VERSION
-           fi
-
-      - name: Print current branch and all branches
-        run: |
-          echo "Current branch:"
-          git branch --show-current
-          echo "All branches:"
-          git branch -a
+          MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
+          if git show-ref --verify --quiet refs/heads/releases/v$MAJOR_VERSION; then
+            git checkout releases/v$MAJOR_VERSION
+          else
+            git checkout -b releases/v$MAJOR_VERSION
+          fi
 
       - name: Cherry-pick commits
         run: |
           IFS=',' read -ra COMMITS <<< "${{ github.event.inputs.commit }}"
           for i in "${COMMITS[@]}"; do
-            echo "Cherry-picking commit: $i"
-            git diff $i^!
             git cherry-pick $i
           done
         if: ${{ github.event.inputs.commit }}
