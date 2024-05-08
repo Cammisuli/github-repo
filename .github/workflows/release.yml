@@ -23,6 +23,7 @@ jobs:
           fetch-depth: 0
 
       - run: |
+          echo "# Nx Cloud Workflows Release" >> $GITHUB_STEP_SUMMARY
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git fetch --all
@@ -48,6 +49,7 @@ jobs:
         run: |
           MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
           git push origin releases/v$MAJOR_VERSION
+          echo "$MAJOR_VERSION updated" >> $GITHUB_STEP_SUMMARY
 
       - name: Create or update tags
         run: |
@@ -62,5 +64,4 @@ jobs:
             git tag -f v$TAG
             git push -f origin v$TAG
           done
-      - run: |
-          echo "### ${{github.event.inputs.version}} created :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "${{github.event.inputs.version}} created :rocket:" >> $GITHUB_STEP_SUMMARY
