@@ -44,6 +44,7 @@ Targets can be defined in the `package.json` or `projects.json`. Learn more [in 
 
 ## Set up CI!
 
+even more things
 Nx comes with local caching already built-in (check your `nx.json`). On CI you might want to go a step further.
 
 - [Set up remote caching](https://nx.dev/features/share-your-cache)
