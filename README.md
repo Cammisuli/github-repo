@@ -34,6 +34,7 @@ You can also run multiple targets:
 
 ```
 more things
+3.2
 npx nx run-many -t <target1> <target2>
 ```
 
