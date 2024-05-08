@@ -49,7 +49,7 @@ jobs:
         run: |
           MAJOR_VERSION=$(echo ${{ github.event.inputs.version }} | cut -d. -f1)
           git push origin releases/v$MAJOR_VERSION
-          echo "$MAJOR_VERSION updated" >> $GITHUB_STEP_SUMMARY
+          echo "releases/v$MAJOR_VERSION updated" >> $GITHUB_STEP_SUMMARY
 
       - name: Create or update tags
         run: |
@@ -63,5 +63,5 @@ jobs:
             fi
             git tag -f v$TAG
             git push -f origin v$TAG
+            echo "v$TAG created :rocket:" >> $GITHUB_STEP_SUMMARY
           done
-          echo "${{github.event.inputs.version}} created :rocket:" >> $GITHUB_STEP_SUMMARY
