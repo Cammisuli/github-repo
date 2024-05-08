@@ -26,6 +26,7 @@ To execute tasks with Nx use the following syntax:
 npx nx <target> <project> <...options>
 ```
 
+new things
 You can also run multiple targets:
 
 ```
