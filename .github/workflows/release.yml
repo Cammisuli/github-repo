@@ -1,5 +1,8 @@
 name: Cherry Pick and Tag
 
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
     inputs:
