@@ -29,6 +29,7 @@ To execute tasks with Nx use the following syntax:
 npx nx <target> <project> <...options>
 ```
 
+only on the 3 branch
 new things
 You can also run multiple targets:
 
