@@ -4,7 +4,7 @@ launch-templates:
     image: 'ubuntu22.04-node20.9-v2'
     init-steps:
       - name: Checkout
-        uses: 'cammisuli/nx-cloud-workflows/fix_non_github_checkout/workflow-steps/checkout/main.yaml'
+        uses: 'nrwl/nx-cloud-workflows/v/workflow-steps/checkout/main.yaml'
       - name: Restore Node Modules Cache
         uses: 'nrwl/nx-cloud-workflows/v3.6/workflow-steps/cache/main.yaml'
         env:
