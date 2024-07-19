@@ -53,5 +53,6 @@
       }
     }
   },
-  "nxCloudAccessToken": "OTkzYzg1M2YtM2E0Zi00MTU4LTkzMWEtM2M2YmJiZTc3YWI3fHJlYWQtd3JpdGU="
+  "nxCloudAccessToken": "ZDMxNTg4MTItN2U1Zi00NTgwLWFmMGEtZDlhNDlmYmMzYzk4fHJlYWQtd3JpdGU=",
+  "nxCloudUrl": "http://localhost:4203"
 }
