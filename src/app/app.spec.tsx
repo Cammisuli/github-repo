@@ -13,8 +13,4 @@ describe('App', () => {
     const { getByText } = render(<App />);
     expect(getByText(/Welcome gitlab-repo/gi)).toBeTruthy();
   });
-
-  it('should pass', () => {
-    expect(false).toBeTruthy();
-  });
 });
