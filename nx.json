@@ -54,5 +54,11 @@
     }
   },
   "nxCloudAccessToken": "ZDMxNTg4MTItN2U1Zi00NTgwLWFmMGEtZDlhNDlmYmMzYzk4fHJlYWQtd3JpdGU=",
-  "nxCloudUrl": "http://localhost:4203"
+  "nxCloudUrl": "http://localhost:4203",
+  "targetDefaults": {
+    "e2e-ci--**/*": {
+      "dependsOn": ["^build"]
+    }
+  },
+  "useLegacyCache": false
 }
